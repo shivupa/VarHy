@@ -1,0 +1,8 @@
+***********************
+Variation Hydrogen Atom
+   By: Shiv Upadhyay
+***********************
+eigenvalue = -0.499278
+eigenvalue = 0.113214
+eigenvalue = 2.5923
+eigenvalue = 21.1444
