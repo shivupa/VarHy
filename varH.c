@@ -5,8 +5,6 @@
 char num_eigenvalues = 4;
 float alpha[4] = {13.00773, 1.962079, 0.444529, 0.1219492};
 double hamiltonian[4*4];
-/*float hamiltonian[num_eigenvalues][num_eigenvalues];
-float overlap[num_eigenvalues][num_eigenvalues];*/
 double overlap[4*4];
 float overlap_elem(char i,char j){
   return powf(M_PI/(alpha[i] + alpha[j]), 1.5);
@@ -41,7 +39,7 @@ void variational_H(){
 	gsl_eigen_gensymmv_sort(energy, coefficents, GSL_EIGEN_SORT_VAL_DESC);
   for(char i=num_eigenvalues-1;i>=0;i--){
     double energy_i = gsl_vector_get (energy, i);
-      printf("eigenvalue = %g\n", energy_i);
+      printf("Energy level %d = %g\n", abs(i-num_eigenvalues) , energy_i);
   }
 }
 int main(){
