@@ -2,22 +2,11 @@
 #include <stdio.h>
 #include <math.h>
 #include <gsl/gsl_eigen.h>
+#include "int.h"
+#include "basis.h"
 char num_eigenvalues = 4;
-float alpha[4] = {13.00773, 1.962079, 0.444529, 0.1219492};
 double hamiltonian[4*4];
 double overlap[4*4];
-float overlap_elem(char i,char j){
-  return powf(M_PI/(alpha[i] + alpha[j]), 1.5);
-}
-float coulomb_elem(char i,char j){
-  return -((2.0 * M_PI) / (alpha[i] + alpha[j]));
-}
-float kinetic_elem(char i,char j){
-  return 3.0*((alpha[i] * alpha[j] * powf(M_PI,1.5)) / (powf((alpha[i] + alpha[j]), 2.5)));
-}
-float hamiltonian_elem(char i,char j){
-  return coulomb_elem(i,j)+kinetic_elem(i,j);
-}
 void variational_H(){
   /* Fill matricies */
   gsl_matrix *coefficents = gsl_matrix_alloc (num_eigenvalues, num_eigenvalues);
@@ -41,6 +30,18 @@ void variational_H(){
     double energy_i = gsl_vector_get (energy, i);
       printf("Energy level %d = %g\n", abs(i-num_eigenvalues) , energy_i);
   }
+  printf("Coefficent Matrix for plotting\n");
+  for(char i=num_eigenvalues-1;i>=0;i--){
+    for(char j=num_eigenvalues-1;j>=0;j--){
+        printf("%g\t", gsl_matrix_get(coefficents,i,j));
+    }
+    printf("\n");
+  }
+  printf("Basis set\n");
+  for(char i=num_eigenvalues;i>0;i--){
+        printf("%g\t", get_alpha(abs(i-num_eigenvalues)));
+  }
+  printf("\n");
 }
 int main(){
   printf("***********************\n");

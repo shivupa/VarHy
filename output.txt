@@ -2,7 +2,14 @@
 Variation Hydrogen Atom
    By: Shiv Upadhyay
 ***********************
-eigenvalue = -0.499278
-eigenvalue = 0.113214
-eigenvalue = 2.5923
-eigenvalue = 21.1444
+Energy level 1 = -0.499278
+Energy level 2 = 0.113214
+Energy level 3 = 2.5923
+Energy level 4 = 21.1444
+Coefficent Matrix for plotting
+-0.267898	0.370125	-0.0526385	-0.00489894	
+-0.674597	-0.891928	0.338738	0.0360358	
+-0.592557	-0.146186	-0.939391	-0.197391	
+-0.349323	-0.214713	0.00557858	0.97965	
+Basis set
+13.0077	1.96208	0.444529	0.121949	
